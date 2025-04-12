@@ -1,0 +1,118 @@
+@use './mixins';
+@use './variables';
+
+@font-face {
+      font-family: "PoiretOne";
+      src: url(../fonts/PoiretOne-Regular.ttf);
+      font-display: swap;
+}
+
+@font-face {
+      font-family: "JosefinSans";
+      src: url(../fonts/JosefinSans-Bold.ttf);
+      font-weight: 700;
+      font-display: swap;
+}
+
+/* fallback */
+@font-face {
+      font-family: "Material Symbols Outlined";
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v154/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOej.woff2) format("woff2");
+      font-display: swap;
+}
+
+* {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      box-sizing: border-box;
+}
+
+a,
+a:active,
+a:visited,
+label,
+textarea,
+textarea::placeholder,
+input,
+input::placeholder,
+button {
+      text-decoration: none;
+      color: inherit;
+      font: inherit;
+}
+
+textarea,
+input,
+input:active,
+input:focus,
+select:active,
+select:focus {
+      outline: none;
+      background: none;
+}
+
+a:hover,
+button:hover,
+select:hover,
+label:hover {
+      cursor: pointer;
+      scale: 1.1;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+}
+
+ul li {
+      list-style-type: none;
+}
+
+.shader img,
+.card-room img,
+.carousel img,
+.room img {
+      @include mixins.size(100%, 100%, none);
+      object-fit: cover;
+      box-shadow: variables.$imgshadow;
+}
+
+h2.caption {
+      @include mixins.font(2rem, variables.$gold, bold);
+      margin-bottom: variables.$topbottom;
+      text-align: center;
+}
+
+@media (min-width: variables.$tablet) {
+      h2.caption {
+            font-size: 2.5rem;
+      }
+}
+
+@media (min-width: variables.$desktop) {
+      h2.caption {
+            font-size: 3rem;
+      }
+}
+
+// перенести куда-нибудь
+
+
+input::placeholder {
+      transition: 0.3s;
+}
+
+input:focus::placeholder,
+input:valid::placeholder {
+      transform: translateY(-25px);
+      font-size: 1.3em;
+}
+
+textarea:focus::placeholder {
+      transform: translateY(calc(10 * 1.4rem));
+      font-size: 1.3em;
+}

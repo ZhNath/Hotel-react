@@ -1,0 +1,238 @@
+// ----------------HEADER---------------------------------
+@use '../mixins';
+@use '../variables';
+@use '../settings';
+@use './rame';
+@use '../buttons';
+
+header {
+      @include mixins.position(fixed, 0, 0, 0, n);
+      padding: variables.$topbottom variables.$leftright;
+      display: grid;
+      z-index: 1;
+}
+
+.content-wrapper {
+      display: contents;
+    }
+
+header.index {
+      background-color: variables.$green;
+
+      grid-template-columns: calc(17ch - 4rem) 4rem auto;
+      grid-template-rows: 2rem 1.8rem repeat(2, 2rem) 1rem;
+      grid-template-areas:
+            "house house  lang-ham"
+            ". gerb  ."
+            "casa gerb  ."
+            "nostra gerb  bookbutton"
+            "linie linie linie";
+
+      $header-index-grid-area: (
+            "span:first-of-type": house,
+            "span:nth-of-type(2)": casa,
+            "span:nth-of-type(3)": nostra,
+            ".logo": gerb,
+            ".bookbtn": bookbutton,
+            "nav": lang-ham,
+            ".line": linie
+      );
+@include mixins.grid-area($header-index-grid-area);
+
+//  ------------------------------header-index-mobile-left
+span {
+      @include mixins.font(1.7rem, variables.$gold, n);
+
+      &.casanostra {
+            font-weight: bold;
+            letter-spacing: 3px;
+      }
+}
+
+
+.logo {
+      @include mixins.size(4rem, auto, none);
+      align-self: end;
+}
+
+
+// ----------------------------------header-index-mobile-right
+// ---------------------------------nav = language + hamburger
+nav {
+      @include xins.flex-row(5px, center, start);
+
+      // ---------------------------hamburger and close button
+      .hamburger .fa-bars {
+            @include mixins.font(1.5rem, variables.$gold, n);
+      }
+
+      label.ham-lines:hover .fa-bars {
+            scale: 1.2;
+      }
+
+}
+
+.bookbtn {
+      place-self: end;
+}
+
+.line {
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 0;
+      align-self: self-end;
+}
+}
+
+@media (min-width: variables.$tablet) {
+      header.index {
+            grid-template-columns: 17ch 6rem 1fr 1fr;
+            grid-template-rows: 3rem 2rem repeat(2, 3rem) 2rem;
+            grid-template-areas:
+                  "house house house lang-ham"
+                  ". gerb . ."
+                  "casa gerb . ."
+                  "nostra gerb . bookbutton"
+                  "linie linie linie linie";
+
+            span.casanostra {
+                  font-size: 3rem;
+            }
+
+            span:nth-child(1) {
+                  font-size: 2.5rem;
+            }
+
+            .logo {
+                  @include mixins.size(6rem, auto, none);
+            }
+
+            nav {
+                  gap: 1rem;
+
+                  .hamburger .fa-bars {
+                        font-size: 3rem;
+                  }
+            }
+      }
+}
+
+@media (min-width: variables.$desktop) {
+      header.index {
+            grid-template-columns: repeat(2, 1fr) 9rem repeat(2, 1fr);
+            grid-template-rows: repeat(3, 4rem) 2rem;
+            grid-template-areas:
+                  ".  house house house lang-ham"
+                  ". . gerb . ."
+                  ". casa gerb nostra ."
+                  "linie linie linie linie linie";
+
+            .logo {
+                  justify-self: center;
+            }
+
+            span:nth-child(1) {
+                  font-size: 4rem;
+                  margin-left: 1em;
+                  justify-self: center;
+            }
+
+            span:nth-child(2) {
+                  justify-self: end;
+            }
+
+            nav {
+                  justify-self: end;
+            }
+
+            .bookbtn,
+            .ham-lines {
+                  display: none;
+            }
+      }
+}
+
+// Header BOOKING
+// ------------------------------header-bookig-page
+header.booking {
+      @include mixins.size(100%, 9rem, inherit);
+      @include mixins.font(1rem, variables.$green, bold);
+      grid-template-columns: 1fr 6rem 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      align-items: start;
+      row-gap: 1rem;
+      z-index: 30;
+
+      .booking-naming {
+            @include mixins.grid-area-num(1, 4, 1, 2);
+
+            span {
+                  font-size: 1.3rem;
+
+                  &.casanostra {
+                        font-size: 1.7rem;
+                  }
+            }
+      }
+
+      .booking-data {
+            @include mixins.grid-area-num(2, 4, 3, 4);
+            display: inline;
+            align-self: end;
+            text-align: end
+      }
+
+      .booking-langnav {
+            @include mixins.grid-area-num(1, 2, 3, 4);
+            justify-self: end;
+            @include mixins.flex-row(5px, center, start);
+      }
+
+      button.language {
+            display: block;
+            border: none;
+            align-self: center;
+      }
+
+      .homelink {
+            @include mixins.grid-area-num(1, 2, 3, 4);
+            width: fit-content;
+            font-size: 2em;
+            margin-right: 1em;
+      }
+
+      .logo {
+            @include mixins.grid-area-num(1, 4, 2, 3);
+            @include mixins.size(5rem, auto, none);
+            align-self: center;
+            margin-right: auto;
+      }
+}
+
+@media (min-width: variables.$tablet) {
+
+      header.booking {
+            grid-template-columns: auto 6rem 1fr;
+
+            .booking-naming span.casanostra {
+                  font-size: 2.5rem;
+            }
+
+            .booking-naming span.house {
+                  font-size: 2rem;
+            }
+      }
+}
+
+@media (min-width: variables.$desktop) {
+
+      header.booking .booking-data {
+            @include mixins.grid-area-num(2, 4, 3, 4);
+            justify-self: end;
+            @include mixins.flex-row(1rem, end, start);
+
+            a {
+                  font-size: 1.5rem;
+            }
+      }
+}

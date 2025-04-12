@@ -1,0 +1,33 @@
+@use "./variables";
+@use "./settings";
+@use "./mixins";
+
+
+@use "./header/header";
+@use "buttons";
+// @use "bars-windows.scss";
+// @use 'animation/animation.scss';
+
+html {
+      font-size: 62.5%;
+      font-family: "PoiretOne", Arial, Helvetica, sans-serif;
+}
+
+body {
+      @include mixins.size(100vw, auto, variables.$green);
+
+      &.page-booking {
+            background-color: variables.$darkfield;
+      }
+
+}
+
+
+
+
+
+// @use "main/main";
+
+
+// @use 'footer';
+// @use 'controller';

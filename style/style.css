@@ -1,0 +1,18 @@
+/* Error: There is no module with the namespace "xins".
+ *    ,
+ * 62 |       @include xins.flex-row(5px, center, start);
+ *    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *    '
+ *   style/header/_header.scss 62:7  @use
+ *   style/style.scss 6:1            root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: There is no module with the namespace "xins".\a    \2577 \a 62 \2502        @include xins.flex-row(5px, center, start);\a    \2502        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   style/header/_header.scss 62:7  @use\a   style/style.scss 6:1            root stylesheet';
+}

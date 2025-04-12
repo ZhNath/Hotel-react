@@ -1,0 +1,162 @@
+@use 'mixins' as *;
+@use 'variables' as *;
+@use 'settings' as *;
+
+button.language {
+      @include size(1rem, 1rem, none);
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+
+      &:active {
+            box-shadow: inset 0px 0px 4px $green;
+      }
+
+      &:hover {
+            transform: scale(1.2);
+      }
+}
+
+$langbuttons: eng url(../src/assets/images/eng.png),
+      deu url(../src/assets/images/deutsch.png),
+      cro url(../src/assets/images/Croatia.png);
+
+@each $lang, $image, $marg in $langbuttons {
+      .language.#{$lang} {
+            background-image: $image;
+            margin-right: $marg;
+      }
+}
+
+// -------------------------------castoselect
+
+.custom-select {
+      // @include position(absolute, 0, 0, 0, 0);
+      @include flex-col(1rem, start, start);
+      border-color:white;
+
+      
+}
+button.select {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      @include size(10rem, 1.5rem, $green);
+      @include font(1rem, $gold, n);
+            border-radius: 0.5rem;
+            cursor: pointer;
+
+            &:hover {
+                  color:yellow;
+            }
+
+            &:active {
+                  box-shadow: inset 0px 0px 4px $green;
+            }
+           
+ 
+}
+
+//---------------------------------------closebutton
+@mixin closebutton {
+      @include font(1.5rem, $darkgold, n);
+      @include position(absolute, n, 3rem, 3rem, n);
+}
+
+
+// -----------------------------goldene linie */
+.line {
+      @include size(70%, 2px, none);
+      display: flex;
+      background-image: linear-gradient(to left,
+                  $gold,
+                  $darkgold,
+                  $gold );
+      margin: auto;
+      margin-top: $topbottom;
+      margin-bottom: $topbottom;
+
+}
+
+@media (min-width: $tablet) {
+      .line {
+            height: 3px;
+            margin-top: $topbottombig;
+            margin-bottom: $topbottombig;
+      }
+}
+
+
+.thinline {
+      @include size(90%, 1px, $gold);
+}
+
+// -------------------------- bookbutton */
+.bookbtn {
+      display: block;
+      background-color: $gold;
+      @include font(1rem, $green, bold);
+      letter-spacing: 1px;
+      padding: 5px;
+      border-radius: 5px;
+      position: relative;
+      overflow: hidden;
+      transition: 0.2s ease-in-out;
+
+      &::after {
+            content: "";
+            @include size(8em, 5em, none);
+            @include position (absolute, n, -1rem, -6em, n);
+            background: linear-gradient(to left, transparent, #efd045, transparent);
+            background-size: cover;
+            transition: 0.5s all ease-in-out;
+
+      }
+
+      &:hover::after {
+            right: 90%;
+      }
+
+      a {
+            letter-spacing: 1px;
+      }
+
+
+
+      /* -----------------------------------------------bookbutton responsiv */
+      @media (min-width: 481px) {
+            & {
+                  font-size: 1.3rem;
+            }
+      }
+
+      @media (min-width: 768px) {
+            & {
+                  font-size: 1.4rem;
+                  padding: 5px;
+            }
+      }
+}
+
+// 
+.email button,
+.write-us-bar button {
+      @include size(32%, 3rem, $darkgold);
+      border: 1px solid $lightfield;
+      @include font(2rem, $lightfield, bold);
+      letter-spacing: 3px;
+
+      margin-left: 12%;
+      margin-bottom: $topbottom;
+      margin-top: $topbottom;
+}
+
+@media (min-width: $tablet) {
+      .email legend {
+            font-size: 3rem;
+      }
+
+      .email .border button {
+            @include size(30%, 4rem, inherit)
+      }
+}

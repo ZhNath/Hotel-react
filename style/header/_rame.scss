@@ -1,0 +1,17 @@
+@use "../mixins" as *;
+
+.rame{
+     @include position(fixed, 0, 0, n, n);
+     @include size(100vw, 20px,n);
+        z-index: 999;
+} 
+
+.rame.english{
+     background-color: red;
+}
+.rame.croatian{
+     background-color: blue;
+}
+.rame.german{
+     background-color: yellow;
+}
