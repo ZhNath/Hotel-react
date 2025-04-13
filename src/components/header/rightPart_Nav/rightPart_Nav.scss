@@ -1,0 +1,47 @@
+@use '../../../../style/mixins';
+@use '../../../../style/variables';
+@use '../../../../style/settings';
+@use './rame.scss';
+@use '../../../../style/buttons';
+
+@use './langSwitcherButtons.scss';
+
+header.index{
+    nav {
+        @include mixins.flex-row(2rem, end, start);
+        .hamburger .fa-bars {
+              @include mixins.font(1.5rem, variables.$gold, n);
+        }
+  
+        label.ham-lines:hover .fa-bars {
+              scale: 1.2;
+        }
+  
+  }
+  .bookbtn {
+    place-self: end;
+}
+}
+
+@media (min-width: variables.$tablet) {
+    header.index {
+          nav {
+                gap: 1rem;
+                .hamburger .fa-bars {
+                      font-size: 3rem;
+                }
+          }
+    }
+}
+
+@media (min-width: variables.$desktop) {
+    header.index {
+          nav {
+                justify-self: end;
+          }
+          .bookbtn,
+          .ham-lines {
+                display: none;
+          }
+    }
+}

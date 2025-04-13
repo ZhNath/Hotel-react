@@ -1,0 +1,71 @@
+@use '../../../../style/mixins' as *;
+@use '../../../../style/variables' as *;
+@use '../../../../style/settings' as *;
+
+button.language {
+    @include size(1rem, 1rem, none);
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+
+    &:active {
+          box-shadow: inset 0px 0px 4px $green;
+    }
+
+    &:hover {
+          transform: scale(1.2);
+    }
+}
+
+$langbuttons: eng url(../src/assets/images/eng.png),
+    deu url(../src/assets/images/deutsch.png),
+    cro url(../src/assets/images/Croatia.png);
+
+@each $lang, $image, $marg in $langbuttons {
+    .language.#{$lang} {
+          background-image: $image;
+          margin-right: $marg;
+    }
+}
+// -------------------------------LanguageSelector
+
+.custom-select {
+      @include flex-col(1rem, top, center);
+}
+
+.dropdown-button {
+      position: relative;
+      @include size(80%, 2rem, $green);
+      line-height: 2rem;
+            &:hover {
+                  color:red;
+            }
+            &:active {
+                   box-shadow: inset 0px 0px 4px $green;
+            }
+             span {
+             @include position(absolute, 0, -0.5rem, 0, n);
+               @include font(2rem, $gold, n);
+            }
+}
+
+.select-dropdown {
+       @include size(10rem, auto, $green);
+       z-index: 15;
+
+      @include flex-col(2rem, start, center);
+      @include font(2rem, $gold, n);
+      padding-top: 1rem;
+      border:2px solid $gold;
+      padding-bottom: 1rem;
+}
+
+.select-dropdown li {
+      text-align: center;
+        &:hover {
+            color:yellow;
+      }
+      &:active {
+            box-shadow: inset 0px 0px 4px $green;
+      }
+}

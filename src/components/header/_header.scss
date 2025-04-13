@@ -1,9 +1,12 @@
 // ----------------HEADER---------------------------------
-@use '../mixins';
-@use '../variables';
-@use '../settings';
-@use './rame';
-@use '../buttons';
+@use '../../../style/mixins';
+@use '../../../style/variables';
+@use '../../../style/settings';
+@use './rightPart_Nav/rame.scss';
+@use '../../../style/buttons';
+
+@use './leftPart/leftPart.scss';
+@use './rightPart_Nav/rightPart_Nav.scss';
 
 header {
       @include mixins.position(fixed, 0, 0, 0, n);
@@ -39,43 +42,6 @@ header.index {
       );
 @include mixins.grid-area($header-index-grid-area);
 
-//  ------------------------------header-index-mobile-left
-span {
-      @include mixins.font(1.7rem, variables.$gold, n);
-
-      &.casanostra {
-            font-weight: bold;
-            letter-spacing: 3px;
-      }
-}
-
-
-.logo {
-      @include mixins.size(4rem, auto, none);
-      align-self: end;
-}
-
-
-// ----------------------------------header-index-mobile-right
-// ---------------------------------nav = language + hamburger
-nav {
-      @include xins.flex-row(5px, center, start);
-
-      // ---------------------------hamburger and close button
-      .hamburger .fa-bars {
-            @include mixins.font(1.5rem, variables.$gold, n);
-      }
-
-      label.ham-lines:hover .fa-bars {
-            scale: 1.2;
-      }
-
-}
-
-.bookbtn {
-      place-self: end;
-}
-
 .line {
       width: 100%;
       margin-top: 0;
@@ -94,26 +60,6 @@ nav {
                   "casa gerb . ."
                   "nostra gerb . bookbutton"
                   "linie linie linie linie";
-
-            span.casanostra {
-                  font-size: 3rem;
-            }
-
-            span:nth-child(1) {
-                  font-size: 2.5rem;
-            }
-
-            .logo {
-                  @include mixins.size(6rem, auto, none);
-            }
-
-            nav {
-                  gap: 1rem;
-
-                  .hamburger .fa-bars {
-                        font-size: 3rem;
-                  }
-            }
       }
 }
 
@@ -126,30 +72,7 @@ nav {
                   ". . gerb . ."
                   ". casa gerb nostra ."
                   "linie linie linie linie linie";
-
-            .logo {
-                  justify-self: center;
-            }
-
-            span:nth-child(1) {
-                  font-size: 4rem;
-                  margin-left: 1em;
-                  justify-self: center;
-            }
-
-            span:nth-child(2) {
-                  justify-self: end;
-            }
-
-            nav {
-                  justify-self: end;
-            }
-
-            .bookbtn,
-            .ham-lines {
-                  display: none;
-            }
-      }
+     }
 }
 
 // Header BOOKING

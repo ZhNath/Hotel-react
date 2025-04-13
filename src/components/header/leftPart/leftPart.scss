@@ -1,0 +1,58 @@
+@use '../../../../style/mixins';
+@use '../../../../style/variables';
+@use '../../../../style/settings';
+@use '../../../../style/buttons';
+
+header.index {
+    span {
+        @include mixins.font(1.7rem, variables.$gold, n);
+  
+        &.casanostra {
+              font-weight: bold;
+              letter-spacing: 3px;
+        }
+  }
+  
+  
+  .logo {
+        @include mixins.size(4rem, auto, none);
+        align-self: end;
+  }
+}
+
+@media (min-width: variables.$tablet) {
+    header.index {
+    
+          span.casanostra {
+                font-size: 3rem;
+          }
+
+          span:nth-child(1) {
+                font-size: 2.5rem;
+          }
+
+          .logo {
+                @include mixins.size(6rem, auto, none);
+          }
+
+         }
+}
+
+@media (min-width: variables.$desktop) {
+    header.index {
+          .logo {
+                justify-self: center;
+          }
+
+          span:nth-child(1) {
+                font-size: 4rem;
+                margin-left: 1em;
+                justify-self: center;
+          }
+
+          span:nth-child(2) {
+                justify-self: end;
+          }
+
+            }
+}

@@ -3,7 +3,7 @@
 @use "./mixins";
 
 
-@use "./header/header";
+@use "../src/components/header/header";
 @use "buttons";
 // @use "bars-windows.scss";
 // @use 'animation/animation.scss';

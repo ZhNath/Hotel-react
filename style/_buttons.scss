@@ -2,60 +2,8 @@
 @use 'variables' as *;
 @use 'settings' as *;
 
-button.language {
-      @include size(1rem, 1rem, none);
-      border-radius: 50%;
-      background-size: cover;
-      background-position: center;
 
-      &:active {
-            box-shadow: inset 0px 0px 4px $green;
-      }
 
-      &:hover {
-            transform: scale(1.2);
-      }
-}
-
-$langbuttons: eng url(../src/assets/images/eng.png),
-      deu url(../src/assets/images/deutsch.png),
-      cro url(../src/assets/images/Croatia.png);
-
-@each $lang, $image, $marg in $langbuttons {
-      .language.#{$lang} {
-            background-image: $image;
-            margin-right: $marg;
-      }
-}
-
-// -------------------------------castoselect
-
-.custom-select {
-      // @include position(absolute, 0, 0, 0, 0);
-      @include flex-col(1rem, start, start);
-      border-color:white;
-
-      
-}
-button.select {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      @include size(10rem, 1.5rem, $green);
-      @include font(1rem, $gold, n);
-            border-radius: 0.5rem;
-            cursor: pointer;
-
-            &:hover {
-                  color:yellow;
-            }
-
-            &:active {
-                  box-shadow: inset 0px 0px 4px $green;
-            }
-           
- 
-}
 
 //---------------------------------------closebutton
 @mixin closebutton {

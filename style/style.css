@@ -1,18 +1,541 @@
-/* Error: There is no module with the namespace "xins".
- *    ,
- * 62 |       @include xins.flex-row(5px, center, start);
- *    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *    '
- *   style/header/_header.scss 62:7  @use
- *   style/style.scss 6:1            root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: There is no module with the namespace "xins".\a    \2577 \a 62 \2502        @include xins.flex-row(5px, center, start);\a    \2502        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   style/header/_header.scss 62:7  @use\a   style/style.scss 6:1            root stylesheet';
+@font-face {
+  font-family: "PoiretOne";
+  src: url(../fonts/PoiretOne-Regular.ttf);
+  font-display: swap;
 }
+@font-face {
+  font-family: "JosefinSans";
+  src: url(../fonts/JosefinSans-Bold.ttf);
+  font-weight: 700;
+  font-display: swap;
+}
+/* fallback */
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v154/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOej.woff2) format("woff2");
+  font-display: swap;
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a,
+a:active,
+a:visited,
+label,
+textarea,
+textarea::placeholder,
+input,
+input::placeholder,
+button {
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+}
+
+textarea,
+input,
+input:active,
+input:focus,
+select:active,
+select:focus {
+  outline: none;
+  background: none;
+}
+
+a:hover,
+button:hover,
+select:hover,
+label:hover {
+  cursor: pointer;
+  scale: 1.1;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.shader img,
+.card-room img,
+.carousel img,
+.room img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: rgba(58, 31, 3, 0.1) 0px 2px 1px, rgba(58, 31, 3, 0.1) 0px 4px 2px, rgba(58, 31, 3, 0.1) 0px 8px 4px, rgba(58, 31, 3, 0.1) 0px 16px 8px, rgba(58, 31, 3, 0.1) 0px 32px 16px;
+}
+
+h2.caption {
+  font-size: 2rem;
+  color: hsl(49, 60%, 52%);
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 481px) {
+  h2.caption {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 769px) {
+  h2.caption {
+    font-size: 3rem;
+  }
+}
+input::placeholder {
+  transition: 0.3s;
+}
+
+input:focus::placeholder,
+input:valid::placeholder {
+  transform: translateY(-25px);
+  font-size: 1.3em;
+}
+
+textarea:focus::placeholder {
+  transform: translateY(14rem);
+  font-size: 1.3em;
+}
+
+.rame {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 4px;
+  background-color: n;
+  z-index: 999;
+}
+
+.rame.english {
+  background-color: red;
+}
+
+.rame.croatian {
+  background-color: blue;
+}
+
+.rame.german {
+  background-color: yellow;
+}
+
+.line {
+  width: 70%;
+  height: 2px;
+  display: flex;
+  background-image: linear-gradient(to left, hsl(49, 60%, 52%), #6c592f, hsl(49, 60%, 52%));
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 481px) {
+  .line {
+    height: 3px;
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+  }
+}
+.thinline {
+  width: 90%;
+  height: 1px;
+  background-color: hsl(49, 60%, 52%);
+}
+
+.bookbtn {
+  display: block;
+  background-color: hsl(49, 60%, 52%);
+  font-size: 1rem;
+  color: #092c24;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.2s ease-in-out;
+  /* -----------------------------------------------bookbutton responsiv */
+}
+.bookbtn::after {
+  content: "";
+  width: 8em;
+  height: 5em;
+  position: absolute;
+  top: -1rem;
+  right: -6em;
+  background: linear-gradient(to left, transparent, #efd045, transparent);
+  background-size: cover;
+  transition: 0.5s all ease-in-out;
+}
+.bookbtn:hover::after {
+  right: 90%;
+}
+.bookbtn a {
+  letter-spacing: 1px;
+}
+@media (min-width: 481px) {
+  .bookbtn {
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 768px) {
+  .bookbtn {
+    font-size: 1.4rem;
+    padding: 5px;
+  }
+}
+
+.email button,
+.write-us-bar button {
+  width: 32%;
+  height: 3rem;
+  background-color: #6c592f;
+  border: 1px solid #fefae7;
+  font-size: 2rem;
+  color: #fefae7;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-left: 12%;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 481px) {
+  .email legend {
+    font-size: 3rem;
+  }
+  .email .border button {
+    width: 30%;
+    height: 4rem;
+    background-color: inherit;
+  }
+}
+header.index span {
+  font-size: 1.7rem;
+  color: hsl(49, 60%, 52%);
+}
+header.index span.casanostra {
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+header.index .logo {
+  width: 4rem;
+  height: auto;
+  align-self: end;
+}
+
+@media (min-width: 481px) {
+  header.index span.casanostra {
+    font-size: 3rem;
+  }
+  header.index span:nth-child(1) {
+    font-size: 2.5rem;
+  }
+  header.index .logo {
+    width: 6rem;
+    height: auto;
+  }
+}
+@media (min-width: 769px) {
+  header.index .logo {
+    justify-self: center;
+  }
+  header.index span:nth-child(1) {
+    font-size: 4rem;
+    margin-left: 1em;
+    justify-self: center;
+  }
+  header.index span:nth-child(2) {
+    justify-self: end;
+  }
+}
+button.language {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+button.language:active {
+  box-shadow: inset 0px 0px 4px #092c24;
+}
+button.language:hover {
+  transform: scale(1.2);
+}
+
+.language.eng {
+  background-image: url(../src/assets/images/eng.png);
+}
+
+.language.deu {
+  background-image: url(../src/assets/images/deutsch.png);
+}
+
+.language.cro {
+  background-image: url(../src/assets/images/Croatia.png);
+}
+
+.custom-select {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+
+.dropdown-button {
+  position: relative;
+  width: 80%;
+  height: 2rem;
+  background-color: #092c24;
+  line-height: 2rem;
+}
+.dropdown-button:hover {
+  color: red;
+}
+.dropdown-button:active {
+  box-shadow: inset 0px 0px 4px #092c24;
+}
+.dropdown-button span {
+  position: absolute;
+  left: 0;
+  top: -0.5rem;
+  right: 0;
+  font-size: 2rem;
+  color: hsl(49, 60%, 52%);
+}
+
+.select-dropdown {
+  width: 10rem;
+  height: auto;
+  background-color: #092c24;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  font-size: 2rem;
+  color: hsl(49, 60%, 52%);
+  padding-top: 1rem;
+  border: 2px solid hsl(49, 60%, 52%);
+  padding-bottom: 1rem;
+}
+
+.select-dropdown li {
+  text-align: center;
+}
+.select-dropdown li:hover {
+  color: yellow;
+}
+.select-dropdown li:active {
+  box-shadow: inset 0px 0px 4px #092c24;
+}
+
+header.index nav {
+  display: flex;
+  justify-content: end;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 2rem;
+}
+header.index nav .hamburger .fa-bars {
+  font-size: 1.5rem;
+  color: hsl(49, 60%, 52%);
+}
+header.index nav label.ham-lines:hover .fa-bars {
+  scale: 1.2;
+}
+header.index .bookbtn {
+  place-self: end;
+}
+
+@media (min-width: 481px) {
+  header.index nav {
+    gap: 1rem;
+  }
+  header.index nav .hamburger .fa-bars {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 769px) {
+  header.index nav {
+    justify-self: end;
+  }
+  header.index .bookbtn,
+  header.index .ham-lines {
+    display: none;
+  }
+}
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  padding: 2rem 5vw;
+  display: grid;
+  z-index: 1;
+}
+
+.content-wrapper {
+  display: contents;
+}
+
+header.index {
+  background-color: #092c24;
+  grid-template-columns: calc(17ch - 4rem) 4rem auto;
+  grid-template-rows: 2rem 1.8rem repeat(2, 2rem) 1rem;
+  grid-template-areas: "house house  lang-ham" ". gerb  ." "casa gerb  ." "nostra gerb  bookbutton" "linie linie linie";
+}
+header.index span:first-of-type {
+  grid-area: house;
+}
+header.index span:nth-of-type(2) {
+  grid-area: casa;
+}
+header.index span:nth-of-type(3) {
+  grid-area: nostra;
+}
+header.index .logo {
+  grid-area: gerb;
+}
+header.index .bookbtn {
+  grid-area: bookbutton;
+}
+header.index nav {
+  grid-area: lang-ham;
+}
+header.index .line {
+  grid-area: linie;
+}
+header.index .line {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  align-self: self-end;
+}
+
+@media (min-width: 481px) {
+  header.index {
+    grid-template-columns: 17ch 6rem 1fr 1fr;
+    grid-template-rows: 3rem 2rem repeat(2, 3rem) 2rem;
+    grid-template-areas: "house house house lang-ham" ". gerb . ." "casa gerb . ." "nostra gerb . bookbutton" "linie linie linie linie";
+  }
+}
+@media (min-width: 769px) {
+  header.index {
+    grid-template-columns: repeat(2, 1fr) 9rem repeat(2, 1fr);
+    grid-template-rows: repeat(3, 4rem) 2rem;
+    grid-template-areas: ".  house house house lang-ham" ". . gerb . ." ". casa gerb nostra ." "linie linie linie linie linie";
+  }
+}
+header.booking {
+  width: 100%;
+  height: 9rem;
+  background-color: inherit;
+  font-size: 1rem;
+  color: #092c24;
+  font-weight: bold;
+  grid-template-columns: 1fr 6rem 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  align-items: start;
+  row-gap: 1rem;
+  z-index: 30;
+}
+header.booking .booking-naming {
+  grid-area: 1/1/4/2;
+}
+header.booking .booking-naming span {
+  font-size: 1.3rem;
+}
+header.booking .booking-naming span.casanostra {
+  font-size: 1.7rem;
+}
+header.booking .booking-data {
+  grid-area: 2/3/4/4;
+  display: inline;
+  align-self: end;
+  text-align: end;
+}
+header.booking .booking-langnav {
+  grid-area: 1/3/2/4;
+  justify-self: end;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 5px;
+}
+header.booking button.language {
+  display: block;
+  border: none;
+  align-self: center;
+}
+header.booking .homelink {
+  grid-area: 1/3/2/4;
+  width: fit-content;
+  font-size: 2em;
+  margin-right: 1em;
+}
+header.booking .logo {
+  grid-area: 1/2/4/3;
+  width: 5rem;
+  height: auto;
+  align-self: center;
+  margin-right: auto;
+}
+
+@media (min-width: 481px) {
+  header.booking {
+    grid-template-columns: auto 6rem 1fr;
+  }
+  header.booking .booking-naming span.casanostra {
+    font-size: 2.5rem;
+  }
+  header.booking .booking-naming span.house {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 769px) {
+  header.booking .booking-data {
+    grid-area: 2/3/4/4;
+    justify-self: end;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+  header.booking .booking-data a {
+    font-size: 1.5rem;
+  }
+}
+html {
+  font-size: 62.5%;
+  font-family: "PoiretOne", Arial, Helvetica, sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: auto;
+  background-color: #092c24;
+}
+body.page-booking {
+  background-color: #f3f0e3;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,8 +1,8 @@
-@use "../mixins" as *;
+@use "../../../../style/mixins" as *;
 
 .rame{
      @include position(fixed, 0, 0, n, n);
-     @include size(100vw, 20px,n);
+     @include size(100vw, 4px,n);
         z-index: 999;
 } 
 

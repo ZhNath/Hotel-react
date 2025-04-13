@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import BasicContext from "../../context/BasicContext";
+import BasicContext from "../../../context/BasicContext";
 
 const Rame = () => {
     const { language } = useContext(BasicContext);
