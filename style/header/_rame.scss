@@ -1,4 +1,6 @@
-@use "../../../../style/mixins" as *;
+@use '../_mixins.scss' as *;
+@use '../_variables.scss' as *;
+@use '../_settings.scss' as *;
 
 .rame{
      @include position(fixed, 0, 0, n, n);

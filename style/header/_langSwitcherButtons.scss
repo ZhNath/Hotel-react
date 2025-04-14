@@ -1,6 +1,6 @@
-@use '../../../../style/mixins' as *;
-@use '../../../../style/variables' as *;
-@use '../../../../style/settings' as *;
+@use '../_mixins.scss' as *;
+@use '../_variables.scss' as *;
+@use '../_settings.scss' as *;
 
 button.language {
     @include size(1rem, 1rem, none);
@@ -30,7 +30,8 @@ $langbuttons: eng url(../src/assets/images/eng.png),
 // -------------------------------LanguageSelector
 
 .custom-select {
-      @include flex-col(1rem, top, center);
+      @include flex-col(1rem, top, end);
+      @include size(100%, auto, $green);
 }
 
 .dropdown-button {
@@ -40,9 +41,9 @@ $langbuttons: eng url(../src/assets/images/eng.png),
             &:hover {
                   color:red;
             }
-            &:active {
-                   box-shadow: inset 0px 0px 4px $green;
-            }
+            // &:active {
+            //        box-shadow: inset 0px 0px 4px $green;
+            // }
              span {
              @include position(absolute, 0, -0.5rem, 0, n);
                @include font(2rem, $gold, n);
@@ -50,7 +51,7 @@ $langbuttons: eng url(../src/assets/images/eng.png),
 }
 
 .select-dropdown {
-       @include size(10rem, auto, $green);
+       @include size(80%, auto, $green);
        z-index: 15;
 
       @include flex-col(2rem, start, center);

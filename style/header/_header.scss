@@ -1,12 +1,13 @@
 // ----------------HEADER---------------------------------
-@use '../../../style/mixins';
-@use '../../../style/variables';
-@use '../../../style/settings';
-@use './rightPart_Nav/rame.scss';
-@use '../../../style/buttons';
+@use '../_mixins.scss';
+@use '../_variables.scss';
+@use '../_settings.scss';
+@use './rame';
+@use '../buttons.scss';
 
-@use './leftPart/leftPart.scss';
-@use './rightPart_Nav/rightPart_Nav.scss';
+@use './leftPart';
+@use './rightPart_Nav';
+@use './hamburgerSlideBar';
 
 header {
       @include mixins.position(fixed, 0, 0, 0, n);

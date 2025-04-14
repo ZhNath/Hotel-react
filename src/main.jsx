@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import App from './App.jsx'
 import Gallery from './components/Gallery.jsx'
 import Booking from './components/Booking.jsx'
+import RenderModal from './functions/RenderModal.jsx'
 import '../style/style.css'
 import {BasicProvider} from './context/BasicContext.jsx'
 
@@ -21,4 +22,11 @@ createRoot(document.getElementById('root')).render(
       </BrowserRouter>
     </BasicProvider>
   </StrictMode>
+)
+createRoot(document.getElementById('modal-root')).render(
+ <StrictMode>
+  <BasicProvider>
+    <RenderModal/>
+  </BasicProvider>
+ </StrictMode>
 )

@@ -1,14 +1,19 @@
-@use 'mixins' as *;
-@use 'variables' as *;
-@use 'settings' as *;
+@use './mixins' as *;
+@use './variables' as *;
+@use './settings' as *;
 
 
 
 
 //---------------------------------------closebutton
-@mixin closebutton {
-      @include font(1.5rem, $darkgold, n);
-      @include position(absolute, n, 3rem, 3rem, n);
+.closebutton {
+      @include size(2rem, 2rem);
+      @include font(1.5rem, $gold, n);
+      @include position(absolute, n, 0.4rem, 0.4rem, n);
+      padding: 5px;
+      &:hover {
+            transform: scale(1.2);
+      }
 }
 
 

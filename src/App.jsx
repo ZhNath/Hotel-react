@@ -8,8 +8,8 @@ import BasicContext from './context/BasicContext.jsx'
 
 
 const App = () => {
-  // const [count, setCount] = useState(0)
 const {isMobile, changeIsMobile} = useContext(BasicContext);
+const {isModalOpen} = useContext(BasicContext);
 
 useEffect(() => {
   const handleResize = () => {
@@ -19,15 +19,15 @@ useEffect(() => {
   return () => 
     window.removeEventListener('resize', handleResize);
   },[changeIsMobile]);
-  console.log("isMobile in App:", isMobile);
+
   return (
-    <>
-    <Rame/>
+    <div className={`app-container ${isModalOpen ? 'inactive' : ''}`}>
+     <Rame/>
      <Header isMobile={isMobile}/>
      <Outlet/>
      <Footer/>
 
-    </>
+    </div>
   )
 }
 

@@ -1,21 +1,25 @@
-@use '../../../../style/mixins';
-@use '../../../../style/variables';
-@use '../../../../style/settings';
+@use '../_mixins.scss';
+@use '../_variables.scss';
+@use '../_settings.scss' ;
 @use './rame.scss';
-@use '../../../../style/buttons';
+@use '../_buttons.scss';
 
 @use './langSwitcherButtons.scss';
 
 header.index{
     nav {
         @include mixins.flex-row(2rem, end, start);
+
         .hamburger .fa-bars {
               @include mixins.font(1.5rem, variables.$gold, n);
         }
-  
-        label.ham-lines:hover .fa-bars {
-              scale: 1.2;
+        .hamburger .ham-lines{
+            background: none;
+            &:hover .fa-bars {
+                  scale: 1.2;
+            }
         }
+  
   
   }
   .bookbtn {

@@ -7,6 +7,7 @@ export default BasicContext;
 const BasicProvider = ({ children }) => {
   const [language, setLanguage] = useState("eng");
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 481);
+  const [isModalOpen,setIsModalOpen] = useState(false);
 
   const changeLanguage = (lang) => {
     setLanguage(lang);
@@ -17,7 +18,8 @@ const BasicProvider = ({ children }) => {
   };
 
   return (
-    <BasicContext.Provider value={{ language, changeLanguage, isMobile, changeIsMobile }}>
+    <BasicContext.Provider value={{ language, changeLanguage,
+     isMobile, changeIsMobile, isModalOpen, setIsModalOpen }}>
       {children}
     </BasicContext.Provider>
   );

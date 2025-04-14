@@ -18,6 +18,7 @@ const LanguageSwitcherButtons = () => {
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
+
     const handleClickOutside = () => {
       setIsDropdownOpen(false);
     }
@@ -29,11 +30,11 @@ const LanguageSwitcherButtons = () => {
                 <button className="select dropdown-button" 
                 title={language}
                 onClick={toggleDropdown}>
-                       <span> {language}</span>
+                        <span> {language}</span>
                 </button>
                 {isDropdownOpen &&(
                     <ul id="lan" className="select-dropdown">
-                     {   languages.map((lang) => (
+                        {   languages.map((lang) => (
                             <li value={lang.code} 
                             className="select-option"
                             key={lang.code}

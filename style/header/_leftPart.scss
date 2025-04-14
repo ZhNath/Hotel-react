@@ -1,7 +1,7 @@
-@use '../../../../style/mixins';
-@use '../../../../style/variables';
-@use '../../../../style/settings';
-@use '../../../../style/buttons';
+@use '../mixins';
+@use '../variables';
+@use '../settings';
+@use '../buttons';
 
 header.index {
     span {

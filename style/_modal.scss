@@ -1,0 +1,46 @@
+@use './mixins' as *;
+@use './variables' as *;
+@use './settings' as *;
+
+.modal-overlay{
+    @include font (2em, $altgold, normal);
+    background-color: $darkfield;
+}
+
+.modal-content{
+    @include position(absolute, 2rem, 2rem, 2rem, 2rem);
+    background-color: $lightfield;
+}
+
+.modal-overlay.randomPlace{
+    border:3px solid $gold;
+}
+
+.modal-overlay.centered{
+    @include position(fixed, n, n, n, n);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:3px solid $gold;
+
+}
+.modal-overlay.sidebar{
+      @include position(fixed, n, 15vh, -100vw, n);
+      @include font (2em, $altgold, normal);
+      z-index: 4;
+      animation: slide-in 0.5s ease forwards;
+}
+
+
+@keyframes slide-in {
+    from {
+      right: -100vw;
+    }
+    to {
+      right: 0;
+    }
+  }
+  
+
+

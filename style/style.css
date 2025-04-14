@@ -131,6 +131,21 @@ textarea:focus::placeholder {
   background-color: yellow;
 }
 
+.closebutton {
+  width: 2rem;
+  height: 2rem;
+  background-color: inherit;
+  font-size: 1.5rem;
+  color: hsl(49, 60%, 52%);
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  padding: 5px;
+}
+.closebutton:hover {
+  transform: scale(1.2);
+}
+
 .line {
   width: 70%;
   height: 2px;
@@ -291,9 +306,12 @@ button.language:hover {
   display: flex;
   flex-direction: column;
   justify-content: top;
-  align-items: center;
+  align-items: end;
   flex-wrap: nowrap;
   gap: 1rem;
+  width: 100%;
+  height: auto;
+  background-color: #092c24;
 }
 
 .dropdown-button {
@@ -306,9 +324,6 @@ button.language:hover {
 .dropdown-button:hover {
   color: red;
 }
-.dropdown-button:active {
-  box-shadow: inset 0px 0px 4px #092c24;
-}
 .dropdown-button span {
   position: absolute;
   left: 0;
@@ -319,7 +334,7 @@ button.language:hover {
 }
 
 .select-dropdown {
-  width: 10rem;
+  width: 80%;
   height: auto;
   background-color: #092c24;
   z-index: 15;
@@ -357,7 +372,10 @@ header.index nav .hamburger .fa-bars {
   font-size: 1.5rem;
   color: hsl(49, 60%, 52%);
 }
-header.index nav label.ham-lines:hover .fa-bars {
+header.index nav .hamburger .ham-lines {
+  background: none;
+}
+header.index nav .hamburger .ham-lines:hover .fa-bars {
   scale: 1.2;
 }
 header.index .bookbtn {
@@ -381,6 +399,20 @@ header.index .bookbtn {
     display: none;
   }
 }
+.slide-content {
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: n;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
 header {
   position: fixed;
   left: 0;
@@ -524,6 +556,52 @@ header.booking .logo {
     font-size: 1.5rem;
   }
 }
+.modal-overlay {
+  font-size: 2em;
+  color: #514716;
+  background-color: #f3f0e3;
+}
+
+.modal-content {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  right: 2rem;
+  bottom: 2rem;
+  background-color: #fefae7;
+}
+
+.modal-overlay.randomPlace {
+  border: 3px solid hsl(49, 60%, 52%);
+}
+
+.modal-overlay.centered {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid hsl(49, 60%, 52%);
+}
+
+.modal-overlay.sidebar {
+  position: fixed;
+  top: 15vh;
+  right: -100vw;
+  font-size: 2em;
+  color: #514716;
+  z-index: 4;
+  animation: slide-in 0.5s ease forwards;
+}
+
+@keyframes slide-in {
+  from {
+    right: -100vw;
+  }
+  to {
+    right: 0;
+  }
+}
 html {
   font-size: 62.5%;
   font-family: "PoiretOne", Arial, Helvetica, sans-serif;
@@ -536,6 +614,11 @@ body {
 }
 body.page-booking {
   background-color: #f3f0e3;
+}
+
+.app-container.inactive {
+  filter: blur(5px);
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=style.css.map */

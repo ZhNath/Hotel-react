@@ -17,9 +17,9 @@ const ClickOut = ({ children, onClickOutside }) => {
   }, [onClickOutside]);
 
   return (
-    <div ref={wrapperRef} style={{ width: "100%" }}>
-      {children}
-    </div>
+    <React.Fragment>
+       {React.cloneElement(children, { ref: wrapperRef })}
+    </React.Fragment>
   );
 };
 
